@@ -1,0 +1,28 @@
+inherit java
+
+DESCRIPTION="Java Readline library"
+HOMEPAGE="http://jline.sourceforge.net/"
+SRC_URI="mirror://sourceforge/jline/${ORIG_PN}-${PV}.zip"
+
+DISTCLEANFILES="*.jar"
+
+src_compile() {
+	lndirs
+	cd ${B}
+	cygjavac -d classes src/src/main/java
+	cp -f src/src/main/resources/jline/* classes/jline/
+	cygjar cf jline-${PV}.jar -C classes jline
+	cygjavadoc -d javadoc -sourcepath src/src/main/java jline
+}
+
+src_test() {
+	cd ${B}/src/src/test/java
+	cygjavac -classpath ${JAVA_DIR}/junit.jar:${B}/classes jline
+	cygjunit -classpath ${B}/classes jline.{ConsoleReaderTest,TestCompletion,TestEditLine,TestHistory}
+}
+
+src_install() {
+	cd ${B}
+	dojar jline-${PV}.jar
+	dojavadoc javadoc/
+}

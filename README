@@ -1,0 +1,47 @@
+java-jline
+------------------------------------------
+JLine is a java library for reading and editing user input in console 
+applications. It features tab-completion, command history, password 
+masking, customizable keybindings, and pass-through handlers to use to 
+chain to other console applications.
+
+Runtime requirements:
+  coreutils (for stty(1))
+
+Build requirements:
+  cygport-0.9.80-1
+  ecj-3.3.2-1
+  fastjar-0.98-1
+  jamvm-1.5.3-1
+  java-junit-3.8.2-2
+  jdk6-langtools-1.6.0_17-1
+
+Canonical website:
+  http://jline.sourceforge.net/
+
+Canonical download:
+  http://sourceforge.net/projects/jline/files/
+
+-------------------------------------------
+
+Build instructions:
+  unpack java-jline-0.9.94-X-src.tar.bz2
+    if you use setup to install this src package, it will be
+	 unpacked under /usr/src automatically
+  cd /usr/src
+  cygport ./java-jline-0.9.94-X.cygport all
+
+This will create:
+  /usr/src/java-jline-0.9.94-X-src.tar.bz2
+  /usr/src/java-jline-0.9.94-X.tar.bz2
+
+-------------------------------------------
+
+Port Notes:
+
+----- version 0.9.94-1 -----
+Initial release for Cygwin 1.7.
+
+
+Cygwin port maintained by:
+http://sourceware.org/cygwinports/
